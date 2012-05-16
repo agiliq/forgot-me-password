@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Password Generator</title>
+    <script type="text/javascript" src="jquery-1.7.2.min.js" ></script>
+    <script type="text/javascript" src="md5.js"></script>
+    <style>
+       body {
+        min-width:357px;
+        
+      }
+
+      
+      .error{
+      display:none;
+      color:red;
+      
+      }
+    </style>
+    </style>
+
+    
+    <script src="popup.js"></script>
+  </head>
+  <body>
+  
+<table>
+  <tr>
+      <td>Master Password</td>
+      <td><input type="password" id="master_pwd" /></td>
+      </tr>
+  <tr>   
+      <td colspan="2"><span class="error"></span>  </td>
+  </tr>
+  <tr>
+      <td>Domain : </td>
+      <td><input type="text" id="domain" readonly="readonly" /> </td>
+  </tr>
+  <tr>
+      <td colspan="2" align="center"><button id="btn_gen">Generate</td>
+  </tr> 
+   
+  <tr>
+      <td>Generated Password</td>
+      <td><input type="text" id="gen_pwd" readonly="readonly" /></td>
+  </tr>
+  <tr>
+      <td colspan="2" align="center"><button id="btn_newmaster">Set New Master</button></td>
+  
+  </tr>
+  
+ 
+</table>
+
+  </body>
+</html>
