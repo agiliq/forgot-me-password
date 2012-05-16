@@ -8,12 +8,34 @@ $(document).ready ->
         master_pwd.attr "readonly","readonly"
 
     chrome.tabs.query {'active':true} , (tab) ->
-        a = document.createElement('a')
-        a.href = tab[0].url
-        genpwdapp.domain = a.host.replace "www." , ""
-        genpwdapp.domain = genpwdapp.domain.substring(a.host.indexOf(".")+1,genpwdapp.domain.length)
+          
+        
+        
+        a=document.createElement('a')
+        a.href=tab[0].url
+        d=""
+        if a.host.substr(0,4) == "www."
+            d=a.host.replace "www.",""
+        else
+            d=a.host
+        till = d.indexOf ".com"
+        
+        total=0
+        for i of d
+            break if i==till
+            total++ if d[i]=="."
+        
+        j=1
+        
+        while j<total
+            ind = d.indexOf(".")
+            d=d.substr(ind+1,d.length)
+            #alert d
+            j++
+   
+        genpwdapp.domain = d
         $("#domain").val genpwdapp.domain
-
+        
 
 #events 
 

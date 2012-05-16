@@ -13,10 +13,28 @@
     chrome.tabs.query({
       'active': true
     }, function(tab) {
-      var a;
+      var a, d, i, ind, j, till, total;
       a = document.createElement('a');
       a.href = tab[0].url;
-      genpwdapp.domain = a.host.replace("www.", "");
+      d = "";
+      if (a.host.substr(0, 4) === "www.") {
+        d = a.host.replace("www.", "");
+      } else {
+        d = a.host;
+      }
+      till = d.indexOf(".com");
+      total = 0;
+      for (i in d) {
+        if (i === till) break;
+        if (d[i] === ".") total++;
+      }
+      j = 1;
+      while (j < total) {
+        ind = d.indexOf(".");
+        d = d.substr(ind + 1, d.length);
+        j++;
+      }
+      genpwdapp.domain = d;
       return $("#domain").val(genpwdapp.domain);
     });
     $("#btn_gen").bind('click', function() {
