@@ -4,6 +4,7 @@ forgot-me-password
 ### Summary 
 
 A client side password generator.
+[See it in action](https://chrome.google.com/webstore/detail/nnjgaeekiplalipomfgacalgehhcckbp)
 
 ### What is it
 
