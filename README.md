@@ -1,10 +1,13 @@
 forgot-me-password
 ==================
 
+### Update
+
+Replaced md5 with SHA2 as md5 is broken.
+
 ### Summary 
 
 A client side password generator.
-[See it in action](https://chrome.google.com/webstore/detail/nnjgaeekiplalipomfgacalgehhcckbp)
 
 ### What is it
 
@@ -20,7 +23,7 @@ I want to algorithmically generate the password on the client side, with a chrom
 
 ### How does it work?
 
-    password_1 = md5(masterpassword+domain)
+    password_1 = SHA256(masterpassword+domain)
     password = take_first_8_letters(password_1)
 
 This will generate a per domain password with 8 characters of entropy and it depends only on master password and the domain.

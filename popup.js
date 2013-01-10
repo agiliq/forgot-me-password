@@ -30,7 +30,7 @@
     };
     getList = function() {
       return $.ajax({
-        url: "http://mxr.mozilla.org/mozilla-central/source/netwerk/dns/effective_tld_names.dat?raw=1",
+        url: "effective_tld_names.dat",
         beforeSend: function() {
           return $("#domain").val("Loading.......");
         }
@@ -117,7 +117,7 @@
       var hash;
       if (master_pwd.val().length > 0) {
         localStorage.genpwdapp_master_pwd = master_pwd.val();
-        hash = String(CryptoJS.MD5($("#master_pwd").val() + genpwdapp.domain));
+        hash = String(CryptoJS.SHA256($("#master_pwd").val() + genpwdapp.domain));
         $("#gen_pwd").val(hash.substr(0, 8));
         return master_pwd.attr("readonly", "readonly");
       } else {
